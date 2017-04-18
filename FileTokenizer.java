@@ -1,23 +1,27 @@
 // Tokenize a text file into a list of words.
 
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.io.*;
 
 public class FileTokenizer {
 
-    public static void main (String[] args) {
+    public static ArrayList<String> tokenize(String filename) {
+        ArrayList<String> tokens = new ArrayList<String>();
         try {
-            File textFile = new File("green-eggs.txt");
+            File textFile = new File(filename);
             Scanner sc = new Scanner(textFile);
 
             while(sc.hasNext()) {
-                System.out.println(sc.next());
+                tokens.add(sc.next());
             }
-            
         }
 
         catch(FileNotFoundException ex) {
             ex.printStackTrace();
         }
+
+        return tokens;
+        
     }
 }
